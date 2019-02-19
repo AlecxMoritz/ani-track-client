@@ -1,0 +1,15 @@
+<div>
+  <ul>
+    <li><a [routerLink]="['']">Home</a></li>
+
+    <li *ngIf="isLoggedIn"><a [routerLink]="['/reviews']">Review</a></li>
+    <li *ngIf="isLoggedIn"><a [routerLink]="['/board']">Message Board</a></li>
+    <!-- <li><a [routerLink]="['/home']">dead link</a></li> -->
+  </ul>
+  <div *ngIf="isLoggedIn; else login">
+    <button (click)="onLogOut()">Log out</button>
+  </div>
+  <ng-template #login>
+    <button [routerLink]="['/auth']">Login</button>
+  </ng-template>
+</div>

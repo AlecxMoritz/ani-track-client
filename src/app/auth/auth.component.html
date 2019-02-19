@@ -1,0 +1,8 @@
+<div *ngIf="signUp == false; else signUpBlock">
+  <app-login></app-login>
+  <p (click)="toggle()">I need an account</p>
+</div>
+<ng-template #signUpBlock>
+  <app-sign-up></app-sign-up>
+  <p (click)="toggle()">I have an account</p>
+</ng-template>
