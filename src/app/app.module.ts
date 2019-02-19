@@ -12,7 +12,12 @@ import { NavbarComponent } from './UI/navbar/navbar.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { LoginComponent } from './auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReviewComponent } from './reviews/review/review.component';
+import { MessageComponent } from './message-board/message/message.component';
+import { PostMessageComponent } from './message-board/post-message/post-message.component';
+import { TokenAuthInterceptor } from './interceptors/token-auth.interceptor';
+import { PostReviewComponent } from './reviews/post-review/post-review.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AdminComponent,
     NavbarComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    ReviewComponent,
+    MessageComponent,
+    PostMessageComponent,
+    PostReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,12 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ HttpClient ],
+  providers: [ 
+    HttpClient,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: TokenAuthInterceptor, multi: true
+    }
+   ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

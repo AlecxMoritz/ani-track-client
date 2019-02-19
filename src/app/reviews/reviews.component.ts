@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewService } from '../services/review.service';
+import { getRenderedText } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-reviews',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-
-  constructor() { }
+  reviews;
+  constructor(private reviewService: ReviewService) { }
 
   ngOnInit() {
+    this.getReviews()
   }
 
+  onReviewPosted() {
+    this.getReviews()
+  }
+
+  getReviews() {
+    this.reviewService.getUserReviews().subscribe(reviews => {
+      this.reviews = reviews;
+      console.log(this.reviews);
+    })
+  }
 }

@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate():  boolean {
       let tokenExp = this.tokenService.checkTokenExp();
-      console.log(tokenExp)
+      
       if(tokenExp === true) {
         this.router.navigate(['/auth'])
         return false;

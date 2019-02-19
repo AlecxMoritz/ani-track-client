@@ -1,3 +1,2 @@
-<p>
-  Handle User Reviews Here
-</p>
+<app-post-review (reviewPosted)="onReviewPosted()"></app-post-review>
+<app-review *ngFor="let review of reviews" [review]="review"></app-review>

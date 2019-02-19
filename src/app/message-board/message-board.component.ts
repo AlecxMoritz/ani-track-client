@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-message-board',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-board.component.css']
 })
 export class MessageBoardComponent implements OnInit {
+  messages;
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit() {
+    this.getMessages();
+  }
+
+  onMessagePosted() {
+    this.getMessages()
+  }
+
+  getMessages() {
+    this.messageService.getAllMessages().subscribe(messages => {
+      this.messages = messages;
+    })
   }
 
 }
