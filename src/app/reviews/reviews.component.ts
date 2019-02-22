@@ -22,7 +22,6 @@ export class ReviewsComponent implements OnInit {
   getReviews() {
     this.reviewService.getUserReviews().subscribe(reviews => {
       this.reviews = reviews;
-      console.log(this.reviews);
     })
   }
 }

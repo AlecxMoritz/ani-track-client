@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-message',
@@ -7,10 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
   @Input() message: any;
-  constructor() { }
+  editable;
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
-    
+    this.editable = this.adminService.getAdminStatus();
   }
 
 }

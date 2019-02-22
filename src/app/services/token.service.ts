@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
+import { AdminService } from './admin.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import * as jwt_decode from 'jwt-decode';
 export class TokenService {
   private _token: string;
   tokenChange = new EventEmitter<string>();
-  constructor() { }
+  constructor(private adminService: AdminService) { }
 
   storeToken(token: string) : void {
     this._token = token;
@@ -31,6 +32,7 @@ export class TokenService {
     const istokenExpired = this.checkLocalExp(localToken);
     if(!istokenExpired) {
       this.storeToken(localToken);
+      this.adminService.findUser();
     }
   }
 
