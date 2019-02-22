@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder, 
     private authService: AuthService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private adminService: AdminService
     ) { }
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit() : void {
     this.authService.login(this.login.value).subscribe(userData => {
       this.tokenService.storeToken(userData.token);
+      this.adminService.setAdminStatus(userData.user.isAdmin);
     });
   }
 }
