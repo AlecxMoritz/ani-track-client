@@ -23,11 +23,12 @@ export class MessageService {
     return this.http.post(this.baseUrl, { message: message }, httpOptions)
   }
 
-  editMessage() {
+  // editMessage() {
 
-  }
+  // }
 
-  deleteMessage() {
-
+  deleteMessage(id: number) {
+    let reqUrl = this.baseUrl + `${id}`;
+    return this.http.delete(reqUrl);
   }
 }

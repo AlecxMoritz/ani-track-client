@@ -27,6 +27,8 @@ import { EditReviewComponent } from './reviews/edit-review/edit-review.component
 import { DeleteReviewComponent } from './reviews/delete-review/delete-review.component';
 import { EditDialogComponent } from './reviews/edit-review/edit-dialog/edit-dialog.component';
 import { DeleteConfirmDialogComponent } from './reviews/delete-review/delete-confirm-dialog/delete-confirm-dialog.component';
+import { AdminDeleteComponent } from './message-board/admin-delete/admin-delete.component';
+import { AdminDeleteDialogComponent } from './message-board/admin-delete-dialog/admin-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { DeleteConfirmDialogComponent } from './reviews/delete-review/delete-con
     DeleteReviewComponent,
     EditDialogComponent,
     DeleteConfirmDialogComponent,
+    AdminDeleteComponent,
+    AdminDeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,7 @@ import { DeleteConfirmDialogComponent } from './reviews/delete-review/delete-con
    ],
 
    entryComponents: [
-    PostReviewComponent, PostMessageComponent, EditDialogComponent, DeleteConfirmDialogComponent
+    PostReviewComponent, PostMessageComponent, EditDialogComponent, DeleteConfirmDialogComponent, AdminDeleteDialogComponent
    ],
 
   bootstrap: [ AppComponent ]

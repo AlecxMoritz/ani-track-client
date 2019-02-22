@@ -1,4 +1,4 @@
 <app-message-index (dialogClosed)="onDialogClosed()"></app-message-index>
 <div>
-  <app-message *ngFor="let message of messages" [message]="message"></app-message>
+  <app-message (dialogClosed)="getMessages()" *ngFor="let message of messages" [message]="message"></app-message>
 </div>

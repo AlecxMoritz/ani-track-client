@@ -10,6 +10,7 @@ import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-con
 export class DeleteReviewComponent implements OnInit {
   @Input() reviewId;
   @Output() dialogClosed = new EventEmitter<any>();
+  
   constructor(public dialog: MatDialog) { }
 
   openDialog(): void {

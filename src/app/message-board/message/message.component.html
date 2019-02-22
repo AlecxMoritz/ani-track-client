@@ -2,5 +2,6 @@
   <div>
     {{ message.content }}
   </div>
-  <button *ngIf="editable" mat-raised-button>Delete</button>
+  <app-admin-delete (dialogClosed)="onDialogClosed()" [messageId]="message.id" *ngIf="editable"></app-admin-delete>
+  <!-- <button *ngIf="editable" mat-raised-button>Delete</button> -->
 </mat-card>
