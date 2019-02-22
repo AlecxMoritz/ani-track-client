@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$ani-track-primary: mat-palette($mat-pink, A200, A100, A700);
+$ani-track-accent: mat-palette($mat-purple, A200, A100, A400);
+
+$ani-track-warn: mat-palette($mat-orange, A200, A100, A400);
+
+$ani-track-theme: mat-dark-theme($ani-track-primary, $ani-track-accent, $ani-track-warn);
+
+@include angular-material-theme($ani-track-theme);
