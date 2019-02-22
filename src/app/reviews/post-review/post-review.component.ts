@@ -1,6 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ReviewService } from 'src/app/services/review.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-post-review',
@@ -10,11 +11,17 @@ import { ReviewService } from 'src/app/services/review.service';
 export class PostReviewComponent implements OnInit {
   review: FormGroup;
   @Output() reviewPosted = new EventEmitter<any>()
-  
+
   constructor(
     private fb: FormBuilder,
-    private reviewService: ReviewService
-    ) { }
+    private reviewService: ReviewService,
+    public dialogRef: MatDialogRef<PostReviewComponent>,
+    // @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   ngOnInit() {
     this.review = this.fb.group({
@@ -29,6 +36,7 @@ export class PostReviewComponent implements OnInit {
     this.reviewService.postReview(this.review.value).subscribe(data => {
       this.review.reset()
       this.reviewPosted.emit();
+      this.onNoClick();
     })
   }
 

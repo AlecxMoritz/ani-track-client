@@ -19,6 +19,10 @@ export class MessageBoardComponent implements OnInit {
     this.getMessages()
   }
 
+  onDialogClosed() {
+    this.getMessages();
+  }
+
   getMessages() {
     this.messageService.getAllMessages().subscribe(messages => {
       this.messages = messages;

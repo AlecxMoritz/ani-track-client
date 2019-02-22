@@ -25,6 +25,16 @@ export class ReviewService {
   }
 
   // delete review
+  deleteReview(id: number) {
+    let reqUrl = this.baseUrl + `/${id}`;
+
+    return this.http.delete(reqUrl, httpOptions);
+  }
 
   // edit review
+  putReview(review: any, id: number) {
+    let reqUrl = this.baseUrl + `/${id}`;
+
+    return this.http.put(reqUrl, { review: review}, httpOptions)
+  }
 }

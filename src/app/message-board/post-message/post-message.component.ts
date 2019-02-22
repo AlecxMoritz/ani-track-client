@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MessageService } from 'src/app/services/message.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-post-message',
@@ -12,8 +13,13 @@ export class PostMessageComponent implements OnInit {
   @Output() messagePosted = new EventEmitter<any>()
   constructor(
     private messageService: MessageService,
-    private fb: FormBuilder
-    ) { }
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<PostMessageComponent>
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   ngOnInit() {
     this.message = this.fb.group({
@@ -24,6 +30,7 @@ export class PostMessageComponent implements OnInit {
   postMessage() {
     this.messageService.postMessage(this.message.value).subscribe(data => {
       this.messagePosted.emit();
+      this.onNoClick()
     })
   }
 

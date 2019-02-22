@@ -1,0 +1,18 @@
+<form [formGroup]="editReview" (ngSubmit)="onSubmit()">
+    <label for="">Title</label>
+    <input type="text" name="show" formControlName="show" defaultValue="{{ data.show }}">
+  
+    <label for="genre">Genre</label>
+    <input type="text" name="genre" formControlName="genre" defaultValue="{{ data.genre }}">
+  
+    <label for="">Rating</label>
+    <input type="text" name="rating"  formControlName="rating" defaultValue="{{ data.rating }}">
+
+    <label>Favorite?</label>
+    <input formControlName="isFavorite" type="checkbox">
+    <!-- is favorite -->
+  
+    <label for="">Opinion</label>
+    <textarea name="text" formControlName="text" defaultValue="{{ data.text }}"></textarea>
+    <input type="submit">
+  </form>

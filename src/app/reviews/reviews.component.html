@@ -1,2 +1,6 @@
-<app-post-review (reviewPosted)="onReviewPosted()"></app-post-review>
-<app-review *ngFor="let review of reviews" [review]="review"></app-review>
+<app-review-index (dialogClosed)="getReviews()"></app-review-index>
+
+<app-review 
+*ngFor="let review of reviews" 
+[review]="review" 
+(editDialogClosed)="getReviews()"></app-review>

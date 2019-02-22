@@ -1,6 +1,11 @@
-<div>
-  <h2>{{ review.show }}</h2>
-  <h3>{{ review.genre }}</h3>
-  <p>{{ review.rating }}</p>
-  <p>{{ review.text }}</p>
+<div class="wrapper">
+  <mat-card class="card">
+    <h1>{{ review.show }}</h1>
+    <h3>{{ review.genre }}</h3>
+    <p>{{ review.rating }}</p>
+    <p>{{ review.text }}</p>
+    <app-edit-review [review]="review" (dialogClosed)="onEditDialogClosed()"></app-edit-review>
+    <app-delete-review [reviewId]="review.id"
+    (dialogClosed)="onEditDialogClosed()"></app-delete-review>
+  </mat-card>
 </div>

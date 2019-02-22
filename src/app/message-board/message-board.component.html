@@ -1,6 +1,4 @@
-<div>
-  <app-post-message (messagePosted)="onMessagePosted()"></app-post-message>
-</div>
+<app-message-index (dialogClosed)="onDialogClosed()"></app-message-index>
 <div>
   <app-message *ngFor="let message of messages" [message]="message"></app-message>
 </div>

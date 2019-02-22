@@ -1,9 +1,23 @@
-<form [formGroup]="signUp" (ngSubmit)="onSubmit()">
-  <label for="password">Name:</label>
-  <input type="text" name="password" formControlName="name">
-  <label for="email">Email:</label>
-  <input type="text" name="email" formControlName="email">
-  <label for="password">Password:</label>
-  <input type="password" name="password" formControlName="password">
-  <input type="submit" value="Sign Up">
+<form [formGroup]="signUp">
+  <!-- <label for="password">Name:</label> -->
+  <mat-form-field class="full-width-input">
+      <input matInput placeholder="Name"  formControlName="name">
+  </mat-form-field>
+  <!-- <input type="text" name="password" formControlName="name"> -->
+
+
+  
+  <!-- <label for="email">Email:</label> -->
+  <mat-form-field class="full-width-input">
+      <input matInput placeholder="Email"  formControlName="email">
+  </mat-form-field>
+  <!-- <input type="text" name="email" formControlName="email"> -->
+  
+  <!-- <label for="password">Password:</label> -->
+  <mat-form-field class="full-width-input">
+      <input matInput type="password" placeholder="Password"  formControlName="password">
+  </mat-form-field>
+  <!-- <input type="password" name="password" formControlName="password"> -->
+
+  <button color="secondary" mat-raised-button (click)="onSubmit()">Sign Up</button>
 </form>

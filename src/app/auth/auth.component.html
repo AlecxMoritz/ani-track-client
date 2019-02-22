@@ -1,8 +1,10 @@
-<div *ngIf="signUp == false; else signUpBlock">
+<mat-card *ngIf="signUp == false; else signUpBlock" class="authCard">
   <app-login></app-login>
-  <p (click)="toggle()">I need an account</p>
-</div>
+  <p (click)="toggle()" class="toggleText">I need an account</p>
+</mat-card>
 <ng-template #signUpBlock>
-  <app-sign-up></app-sign-up>
-  <p (click)="toggle()">I have an account</p>
+  <mat-card class="authCard">
+    <app-sign-up></app-sign-up>
+    <p (click)="toggle()" class="toggleText">I have an account</p>
+  </mat-card>
 </ng-template>
